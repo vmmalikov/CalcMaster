@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Calc
 {
-    public class ReversePolishCalculator
-    {
-
-    }
+	public class ReversePolishCalculator
+	{
+		public double Evaluate(string expression)
+		{
+			return 3.14;
+		}
+	}
 }
