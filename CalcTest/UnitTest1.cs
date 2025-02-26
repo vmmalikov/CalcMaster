@@ -17,5 +17,14 @@ namespace CalcTest
 			double result = calculator.Evaluate(expr);
 			Assert.Equal(expected, result);
 		}
+
+		[Theory]
+		[InlineData("3 4 + 2 *", 14)]
+		[InlineData("5 1 2 + 4 * + 3 -", 14)]
+		public void Evaluate_TwoOperations_ReturnsCorrectResult(string expr, double expected)
+		{
+			double result = calculator.Evaluate(expr);
+			Assert.Equal(expected, result);
+		}
 	}
 }
