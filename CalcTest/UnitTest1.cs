@@ -41,5 +41,19 @@ namespace CalcTest
 		{
 			Assert.Throws<DivideByZeroException>(() => calculator.Evaluate("5 0 /"));
 		}
+
+		[Theory]
+		[InlineData("2 3 ^", 8)]
+		[InlineData("3 2 ^", 9)]
+		[InlineData("5 0 ^", 1)]
+		[InlineData("0 5 ^", 0)]
+		[InlineData("-2 3 ^", -8)]
+		[InlineData("4 0.5 ^", 2)]
+		[InlineData("3 4 2 * + 5 2 ^ - 10 2 / +", -9)]
+		public void Evaluate_PowerOperation_ReturnsCorrectResult(string expr, double expected)
+		{
+			double result = calculator.Evaluate(expr);
+			Assert.Equal(expected, result);
+		}
 	}
 }
